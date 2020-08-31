@@ -1,0 +1,126 @@
+﻿@model LearnMSSQL.ViewModels.ResultsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:134%;" class="btn-lg btn-primary">
+        Your journey to become the absolute MSSQL Professor starts here!
+        Review your results below and remember you can retake a test at anytime.
+    </p>
+
+</div>
+
+<br />
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Difficulty</th>
+            <th>Time</th>
+            <th>Grade</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center" width="80px" style="font-size:125%">Test 1</td>
+            <td>Microsoft SQL Server Basics</td>
+            <td>Beginner</td>
+
+            @{
+                //If the grade equals 1234, it means that there is no record in the database
+                //on this test for the current user 
+
+                if (Model.Grade1 == 1234)
+                {
+                    <td>Test not taken yet!</td>
+                    <td>Test not taken yet!</td>
+                }
+                //Otherwise the datetime and the grade are displayed in the results table
+                else
+                {
+                    <td> @Html.DisplayFor(model => Model.Time1)</td>
+                    <td> @Html.DisplayFor(model => Model.Grade1)%</td>
+
+
+                }
+
+            }
+        </tr>
+
+        <tr>
+            <td align="center" width="80px" style="font-size:125%">Test 2</td>
+            <td>Microsoft SQL Server Advanced</td>
+            <td>Student</td>
+            @{
+                if (Model.Grade2 == 1234)
+                {
+                    <td>Test not taken yet!</td>
+                    <td>Test not taken yet!</td>
+                }
+                else
+                {
+                    <td> @Html.DisplayFor(model => Model.Time2)</td>
+                    <td> @Html.DisplayFor(model => Model.Grade2)%</td>
+
+
+                }
+
+            }
+        </tr>
+
+        <tr>
+            <td align="center" width="80px" style="font-size:125%">Test 3</td>
+            <td>Microsoft SQL Server Master</td>
+            <td>Master</td>
+            @{
+                if (Model.Grade3 == 1234)
+                {
+                    <td>Test not taken yet!</td>
+                    <td>Test not taken yet!</td>
+                }
+                else
+                {
+                    <td> @Html.DisplayFor(model => Model.Time3)</td>
+                    <td> @Html.DisplayFor(model => Model.Grade3)%</td>
+
+
+                }
+
+            }
+        </tr>
+
+        <tr>
+            <td align="center" width="80px" style="font-size:125%">Test 4</td>
+            <td>Microsoft SQL Server Professor</td>
+            <td>Professor</td>
+
+            @{
+                if (Model.Grade4 == 1234)
+                {
+                    <td>Test not taken yet!</td>
+                    <td>Test not taken yet!</td>
+                }
+                else
+                {
+                    <td> @Html.DisplayFor(model => Model.Time4)</td>
+                    <td> @Html.DisplayFor(model => Model.Grade4)%</td>
+
+
+                }
+
+            }
+        </tr>
+    </tbody>
+</table>

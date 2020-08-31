@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Learn Microsoft SQL Server</h1>
+    <p class="lead">Teach yourself everything you need to know about MSSQL quickly and easily!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Documentation</h2>
+        <p>
+            Find the answers to all your questions in the documentation and learn how to build intelligent,
+            mission-critical applications using a scalable, hybrid database platform that has everything built in.
+
+        </p>
+        
+
+        <p> @Html.ActionLink("Let's get started »", "Index", "Documentation", null, new { @class = "btn btn-primary" }) </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Tests</h2>
+        <p>
+           Done with studying? Login with your personal account and choose from a variety of tests with different subjects, difficulty 
+           and knowledge level requirements to become the absolute Master of MSSQL.
+        </p>
+        <p> @Html.ActionLink("Test your knowledge »", "Index", "Tests", null, new { @class = "btn btn-primary" }) </p>
+    </div>
+    <div class="col-md-4">
+        <h2>My Results</h2>
+        <p>
+           Once you take a test, you can always check your results along with the exact date and time you completed 
+           each test. Just head over to My Results page and find out how close you are to becoming an MSSQL expert.
+        </p>
+        <p> @Html.ActionLink("Check your results »", "Index", "MyResults", null, new { @class = "btn btn-primary" }) </p>
+    </div>
+</div>

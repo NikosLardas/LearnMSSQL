@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:135%;" class="btn-lg btn-primary">
+    Take a look at all the available Tests and choose the one that better fits your needs
+    </p>
+
+</div>
+
+<br />
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Difficulty</th>
+            <th>Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td align="center" width="90px" style="font-size:125%">
+                @Html.ActionLink("Test 1", "Test1", "Tests")       
+                </td>
+                <td>Microsoft SQL Server Basics</td>
+                <td>Beginner</td>
+                <td>
+                    This is your first step torwards success. A combination of low difficulty questions, 
+                    with the purpose of ensuring you have understood all the basics of MSSQL. 
+                </td>
+                
+            </tr>
+
+            <tr>
+                <td align="center" width="90px" style="font-size:125%">
+                    @Html.ActionLink("Test 2", "Test2", "Tests")
+                </td>
+                <td>Microsoft SQL Server Advanced</td>
+                <td>Student</td>
+                <td>
+                    You're officialy a student now. You already mastered all the basic information and you'are ready start digging dipper into
+                    the well of knowledge and sharpen your skills.
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" width="90px" style="font-size:125%">
+                    @Html.ActionLink("Test 3", "Test3", "Tests")
+                </td>
+                <td>Microsoft SQL Server Master</td>
+                <td>Master</td>
+                <td>
+                    A true MSSQL Master! You have come so far and you won't stop now. Time to push yourself to the limit
+                    and gain truly advanced knowledge on all topics.
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" width="90px" style="font-size:125%">
+                    @Html.ActionLink("Test 4", "Test4", "Tests")
+                </td>
+                <td>Microsoft SQL Server Professor</td>
+                <td>Professor</td>
+                <td>
+                    Let's be honest with each other. This is a test that only the creator of SQL Server and a handful of people 
+                    can pass. If you score well on this one, well, you're the Professor from now on!
+                </td>
+            </tr>
+    </tbody>
+</table>

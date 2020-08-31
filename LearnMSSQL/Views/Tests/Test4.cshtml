@@ -1,0 +1,198 @@
+﻿@model LearnMSSQL.ViewModels.ResultsViewModel
+@{
+    ViewBag.Title = "Test4";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:160%;" class="btn-lg btn-primary">Test 4 - Microsoft SQL Server Professor</p>
+
+</div>
+
+<br />
+
+<div class="jumbotron" style="font-size:140%">
+
+
+    @using (Html.BeginForm("ResultsCalculation", "Tests", new { TestTaken = "Test 4" }))
+    {
+
+        //Store hidden value with the name of the test
+        @Html.HiddenFor(m => m.TestTaken, new { Value = "Test 4" })
+
+        //Apply antiforgerytoken for security
+        @Html.AntiForgeryToken()
+
+        <div>@Html.ValidationSummary(true, "Please answer all questions before you submit the Test!")</div>
+
+        <div class="form-group">
+
+            @*Based on the answer of the user, store true if the answer is correct, else store false *@
+            <label style="font-weight:bold">Which of the following queries returns the users whose username starts with any of the character between v to z?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer1)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) SELECT PKUserId, UserName FROM UserProfile WHERE (UserName LIKE '[vz]%')
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, true) SELECT PKUserId, UserName FROM UserProfile WHERE (UserName LIKE '[v-z]%')
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) SELECT PKUserId, UserName FROM UserProfile WHERE (UserName LIKE '[v-z%]')
+
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following options can be used for viewing lock status within your computer running SQL Server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer2)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) We can use SQL Profiler to capture lock and blocking information.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) We can use the Activity Monitor in SSMS to see information on blocking processes.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, true) All of the above.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following commands is used to retrieve information about the information contained in the current transaction log ?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer3)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, true) DBCC LOGGING statement
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) DBC LOG statement
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) DBCC LOG statement
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">The _____ object is used to retrieve information about all active transactions on an instance.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer4)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) Sys.dm_active_transactions
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) Sys.dm_tran_transactions
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, true) Sys.dm_tran_active_transactions
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">By default, what type of index is created for a unique constraint?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer5)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) Clustered index
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, true) Non-Clustered index
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) None of the above.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">To rollback a portion of a transaction, We have to define ___.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer6)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, true) Savepoints
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) Checkpoints
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) Transactions
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Assuming the following query is executed on 31st Dec 2011. What is the result of the below query. SELECT CONVERT(varchar(30), GETDATE(), 111) AS Expr1</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer7)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) 11/12/31
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, true) 2011/12/31
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) 31/12/2011
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following is a best practice to reduce deadlock situations?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer8)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Keep transactions short.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Collect and verify input data from users before opening a transaction
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, true) Access resources in the same order whenever possible within transactions
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the default join type used when only the keyword JOIN is specified?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer9)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) LEFT OUTER JOIN
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, true) INNER JOIN
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) RIGHT OUTER JOIN
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the output of the below query: SELECT CHARINDEX('DOT%', 'DOTNET') AS 'CharIndex'</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer10)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) 1
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) 2
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, true) 0
+
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary" style="font-size:92%">Submit</button>
+
+    }
+
+</div>

@@ -1,0 +1,199 @@
+﻿@model LearnMSSQL.ViewModels.ResultsViewModel
+@{
+    ViewBag.Title = "Test2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:160%;" class="btn-lg btn-primary">Test 2 - Microsoft SQL Server Advanced</p>
+
+</div>
+
+<br />
+
+<div class="jumbotron" style="font-size:140%">
+
+
+    @using (Html.BeginForm("ResultsCalculation", "Tests"))
+    {
+
+        //Store hidden value with the name of the test
+        @Html.HiddenFor(m => m.TestTaken, new { Value = "Test 2" })
+
+        //Apply antiforgerytoken for security
+        @Html.AntiForgeryToken()
+
+        <div>@Html.ValidationSummary(true, "Please answer all questions before you submit the Test!")</div>
+
+        <div class="form-group">
+
+            @*Based on the answer of the user, store true if the answer is correct, else store false *@
+            <label style="font-weight:bold">OLTP stands for _________.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer1)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, true) Online Transaction Processing
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) Offline Transaction Processing
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) Ontime Transaction Program
+
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the followings are the types of locks in SQL Server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer2)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) Shared locks
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) Exclusive locks
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, true) All of the above
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What are the authentication modes in SQL Server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer3)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) Windows mode
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) Mixed mode
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, true) All of the above
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is a trigger?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer4)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, true) A trigger is a SQL procedure that initiates an action when an event (INSERT, DELETE or UPDATE) occurs.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) A trigger is an event that can be raised from Stored Procedures.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) A trigger is a SQL procedure that performs some tasks on accessing db tables.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What are the different types of trigger</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer5)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) DDL and DCL
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) DDL and DUL
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, true) DML and DDL
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What are the different types of temporary tables in SQL server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer6)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) Indexed and non-index temporary tables
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, true) Global and local temporary tables
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) Unique and shared temporary tables
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following is not a valid data type in SQL server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer7)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, true) blob
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) nvarchar
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) xml
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the followings are valid Transaction levels in SQL Server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer8)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) READ COMMITTED
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) REPEATABLE READ
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, true) All of the above
+
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following keyword is used to raise an error in stored procedure?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer9)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) THROW
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) THROWERROR
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, true) RAISEERROR
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What are the different types of replication available in SQL server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer10)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) All of the below
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, true) Transactional Replication
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) Merge Replication
+
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary" style="font-size:92%">Submit</button>
+
+    }
+
+</div>

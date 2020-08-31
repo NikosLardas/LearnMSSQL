@@ -1,0 +1,201 @@
+﻿@model LearnMSSQL.ViewModels.ResultsViewModel
+@{
+    ViewBag.Title = "Test1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:160%;" class="btn-lg btn-primary">Test 1 - Microsoft SQL Server Basics</p>
+
+</div>
+
+<br />
+
+<div class="jumbotron" style="font-size:140%">
+
+
+    @using (Html.BeginForm("ResultsCalculation", "Tests"))
+    {
+
+        //Store hidden value with the name of the test
+        @Html.HiddenFor(m => m.TestTaken, new { Value = "Test 1" })
+
+        //Apply antiforgerytoken for security
+        @Html.AntiForgeryToken()
+
+        <div>@Html.ValidationSummary(true, "Please answer all questions before you submit the Test!")</div>
+
+        <div class="form-group">
+
+            @*Based on the answer of the user, store true if the answer is correct, else store false *@
+            <label style="font-weight:bold">What is normalization?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer1)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, true) It is a set of database design rules to minimize redundancy.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) It is a set of rules to normalize database transactions.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) It is a set of rules to improve database performance.
+
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">ACID stands for _______.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer2)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) Atomic, Cryptic, Independent, Durable
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, true) Atomicity, Consistency, Isolation, Durability
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) Automatic, Concurrent, Isolation, Durability
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is Primary Key?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer3)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) Primary keys are unique names of a table.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) Primary keys are integer ids in a table rows.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, true) Primary keys are unique identifiers for each row in a table.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">A table can have more than one combination of columns that uniquely identify the row in a table; each combination is called_________.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer4)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) Foreign Key
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, true) Candidate Key
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) Composite Key
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">A column that automatically generates numeric values is called __________.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer5)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) Unique column
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) Integer column
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, true) Identity column
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the correct order of query operators in a SQL query?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer6)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, true) SELECT -> FROM -> OUTER -> WHERE
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) FROM -> OUTER -> WHERE -> ON
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) SELECT -> FROM -> WHERE -> OUTER
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What are indexes?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer7)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, true) Index speed up the data retrieval
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) Index stores large number of integer values
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) Index minimize the data redundancy
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">How many types of indexes in SQL server?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer8)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Integer and string
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Unique and non-unique
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, true) Clustered and Nonclustered
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">RAID stands for ________.</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer9)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) Reduce Array of Independent Disks
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, true) Redundant Array of Independent Disks
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) Redundant Automatic Individual Durable
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the difference between Primary key and Unique key?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer10)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) Primary key doesn’t allow null value whereas unique key allows multiple null values.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) Primary key allows one null value whereas unique key doesn’t allow null value.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, true) Primary key doesn’t allow null value whereas unique key allows one null value.
+
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary" style="font-size:92%">Submit</button>
+
+    }
+
+</div>
+
+

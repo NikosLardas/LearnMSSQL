@@ -1,0 +1,207 @@
+﻿@model LearnMSSQL.ViewModels.ResultsViewModel
+@{
+    ViewBag.Title = "Test3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div style="text-align:center">
+
+    <p style="font-size:160%;" class="btn-lg btn-primary">Test 3 - Microsoft SQL Server Master</p>
+
+</div>
+
+<br />
+
+<div class="jumbotron" style="font-size:140%">
+
+
+    @using (Html.BeginForm("ResultsCalculation", "Tests"))
+    {
+
+        //Store hidden value with the name of the test
+        @Html.HiddenFor(m => m.TestTaken, new { Value = "Test 3" })
+
+        //Apply antiforgerytoken for security
+        @Html.AntiForgeryToken()
+
+        <div>@Html.ValidationSummary(true, "Please answer all questions before you submit the Test!")</div>
+
+        <div class="form-group">
+
+            @*Based on the answer of the user, store true if the answer is correct, else store false *@
+            <label style="font-weight:bold">
+                Assuming UserProfile is a table containing a column Proession which accepts NULL value. What is the result of the below query.
+                SET ANSI_NULLS OFF SELECT Profession FROM UserProfile WHERE (Profession <> NULL)
+            </label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer1)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) Gives an error.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, true)  Returns all Professions which has not null values.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer1, false) <> is not an operator in SQL Server.
+
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the result of the below query: SELECT SUBSTRING('DOTNET', 1, 3) AS 'Substring'</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer2)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, true) DOT
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) OTN
+            <br />
+            @Html.RadioButtonFor(m => m.Answer2, false) OT
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following is true about the SERIALIZABLE isolation level ?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer3)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) It protects against phantom reads.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, true)  It causes the highest level of contention.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer3, false) All of the above.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">What is the result of the query: SELECT PATINDEX('DOT%', 'DOTNET') AS 'Index'</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer4)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, true) 0
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) 1
+            <br />
+            @Html.RadioButtonFor(m => m.Answer4, false) -1
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">The SELECT statement must include which of the following clause:</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer5)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) SELECT clause
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, false) FROM clause
+            <br />
+            @Html.RadioButtonFor(m => m.Answer5, true) Both A and B.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following is true?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer6)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) BUILT-IN functions in SQL Server are Nondeterministic.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, false) ISNULL function in SQL Server is Deterministic.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer6, true) All of the above.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">Which of the following is true?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer7)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, true) NULL values are included for all the aggregate functions.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) NULL values are ignored for all the aggregate functions.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer7, false) Both A and B.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">
+                Assuming UserProfile is a table with PKUserId int, Profession Varchar(50)columns. What is the result of the below query: SELECT PKUserId,Profession  FROM UserProfile
+                WHERE Profession = 'Engineer' AND (PKUserId > 12 OR PKUserId = 1)
+            </label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer8)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, true) Displays Users with Profession as 'engineer' with PKUserId > 12 as well as the users with PKUserId of 1.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Displays Users with Profession as 'engineer' with PKUserId > 12 only.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer8, false) Displays Users with Profession as 'engineer' with PKUserId of 1 only.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">
+                BEGIN TRANSACTION INSERT INTO DemoTable VALUES(5,'XYZ','DEMO'); BEGIN TRANSACTION UPDATE DemoTable SET Col3 = 'Test' WHERE TestID = 5; COMMIT TRANSACTION; ROLLBACK;
+                What is the result of the above code execution?
+            </label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer9)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) The data is rolled back to the transaction starting on line1.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, false) The inserted row does not exist in the table.
+            <br />
+            @Html.RadioButtonFor(m => m.Answer9, true) All of the above.
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+            <label style="font-weight:bold">How many transactions at a time can obtain an update lock on a resource?</label>
+            <br />
+            @Html.ValidationMessageFor(m => m.Answer10)
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, true) 1
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) 2
+            <br />
+            @Html.RadioButtonFor(m => m.Answer10, false) 3
+
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary" style="font-size:92%">Submit</button>
+
+    }
+
+</div>
